@@ -1,0 +1,244 @@
+#Location -----------------------------------
+- model: Event.Location
+  pk: 1
+  fields:
+    name: Koteshwor
+    latitude: 27.677067
+    longitude: 85.345818
+
+- model: Event.Location
+  pk: 2
+  fields:
+    name: Babarmahal
+    latitude: 27.695346
+    longitude: 85.322307
+
+- model: Event.Location
+  pk: 3
+  fields:
+    name: Gaushala
+    latitude: 27.708949
+    longitude: 85.3466
+
+- model: Event.Location
+  pk: 4
+  fields:
+    name: Kirtipur
+    latitude: 27.669846
+    longitude: 85.28186
+
+- model: Event.Location
+  pk: 5
+  fields:
+    name: Kalanki
+    latitude: 27.693579
+    longitude: 85.280875
+
+#Event Type -------------------------------
+- model: Event.EventType
+  pk: 1
+  fields:
+    name: Cleaning Campaign
+
+
+- model: Event.EventType
+  pk: 2
+  fields: 
+    name: Donation
+
+
+- model: Event.EventType
+  pk: 3
+  fields: 
+    name: Rally
+
+
+- model: Event.EventType
+  pk: 4
+  fields: 
+    name: Hackathon
+
+
+- model: Event.EventType
+  pk: 5
+  fields: 
+    name: Protest
+
+
+- model: Event.EventType
+  pk: 6
+  fields: 
+    name: Marathon
+
+
+# User ------------------------------------------
+- model: auth.User
+  pk: 2
+  fields:
+    username: sudip
+    email: b@c.com
+    password: pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0=
+
+- model: auth.User
+  pk: 3
+  fields:
+    username: astha
+    email: c@b.com
+    password: pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0=
+
+- model: auth.User
+  pk: 4
+  fields:
+    username: raj
+    email: d@b.com
+    password: pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0=
+
+- model: auth.User
+  pk: 5
+  fields:
+    username: nkandel
+    email: e@b.com
+    password: pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0=
+
+#General User ---------------------------------------
+- model: Event.GeneralUser
+  pk: 1
+  fields:
+    user: 2
+    phone: 9842227969
+    twitter: errajsubit
+    facebook: fankysubit
+    subscription: [1, 2]
+
+- model: Event.GeneralUser
+  pk: 2
+  fields:
+    user: 3
+    phone: 9841157853
+    twitter: kaflesudip
+    facebook: kaflesudip
+    subscription: [2, 3, 4]
+
+- model: Event.GeneralUser
+  pk: 3
+  fields:
+    user: 4
+    phone: 9841578870
+    twitter: pantastha
+    facebook: astha.pant.3
+    subscription: [3, 5]
+
+- model: Event.GeneralUser
+  pk: 4
+  fields:
+    user: 5
+    phone: 9849259213
+    twitter: npkand
+    facebook: er.npk
+    subscription: [1, 2, 3, 5]
+
+# Event --------------------------------------------
+- model: Event.Event
+  pk: 1
+  fields:
+    title: Blood Donation Program in TU
+    description: Students have organized blood donation program in TU. The blood program is organized in association with Nepal Red Cross Society. Donating blood helps in regulating circulatory system properly and increases RBC production. All students and people are invited.
+    date: 2013-10-31
+    time: 05:00:00 
+    location_name: TU
+    latitude: 28.5660075
+    longitude: 77.1767434999
+    location: 4
+    event_type: 2
+    host: 1
+    participant: [2, 3]
+
+- model: Event.Event
+  pk: 2
+  fields:
+    title: Cycle Rally for women empowerment
+    description: A cycle rally has been organized for development and empowering wemen. The rally is organized as pressure program to government and organizations working for women development to increase their effort. Female participation is highly encouraged. The rally goes initiates at Koteshwor and goes round Kathmandu ringroad. 
+    date: 2013-10-10
+    time: 05:30:00 
+    location_name: Jadibuti
+    latitude: 27.67511720
+    longitude: 85.3532927999
+    location: 1
+    event_type: 3
+    host: 2
+    participant: [1, 3]
+
+- model: Event.Event
+  pk: 3
+  fields:
+    title: Marathon in Cristmas
+    description: Christmas sociey Nepal has organized marathon at the Christmas Day. The marathon is for promoting Christianity and providing information about the history development and practising of Christianity in world and in Nepal.
+    date: 2013-12-25
+    time: 06:00:00 
+    location_name: Road Department
+    latitude: 27.694000
+    longitude: 85.322300
+    location: 2
+    event_type: 6
+    host: 3
+    participant: [1, 2]
+
+- model: Event.Event
+  pk: 4
+  fields:
+    title: Hackathon in Hack Day
+    description: FOSS Nepal has organized hackathon for promoting Open Data. The Free and Open Source Software organization has been working for promoting the use of open source softwares to reduce piracy. People from global FOSS will also be attending this hackathon and there will be discussions about different freely available softwares that can be used as alternatives to popular paid ones. 
+    date: 2014-01-31
+    time: 09:00:00 
+    location_name: Kalanki Temple
+    latitude: 27.69400
+    longitude: 85.28000
+    location: 5
+    event_type: 4
+    host: 1
+    participant: [2, 3, 4]
+
+- model: Event.Event
+  pk: 5
+  fields:
+    title: Protest against women violence
+    description: Women has long been living under male dominated society. different types of violence like rape domestic violence child marriage are relevant in society. organizations working for women and world bank have collaboratively organized this protest.
+    date: 2013-12-01
+    time: 07:30:00 
+    location_name: Chovar
+    latitude: 27.67000
+    longitude: 85.28176
+    location: 4
+    event_type: 5
+    host: 2
+    participant: [1, 3, 4]
+
+- model: Event.Event
+  pk: 6
+  fields:
+    title: Bagmati Cleaning Campaign
+    description: Volunteer Foundation Nepal has organized Bagmati Cleaning Campaign to clean the Bagmati river near Pashupati Area. The main objective to wash out the drainage and wastes thrown in the sacred river at the sacred place.
+    date: 2013-06-11
+    time: 09:00:00 
+    location_name: Pinglasthan
+    location: 3
+    latitude: 27.70900
+    longitude: 85.34500
+    event_type: 1
+    host: 4
+    participant: [1, 2]
+
+- model: Event.Event
+  pk: 7
+  fields:
+    title: Book donation program
+    description: The students of Pulchowk Campus has organized book donating program. Students are donating the books read at school level to provide booking materials to the childred in remote areas.
+    date: 2013-11-08
+    time: 10:00:00 
+    location_name: Jadibuti
+    location: 1
+    latitude: 27.678000
+    longitude: 85.346000
+    event_type: 2
+    host: 3
+    participant: [1, 2, 4]

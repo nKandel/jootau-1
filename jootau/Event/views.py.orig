@@ -1,0 +1,110 @@
+# Create your views here.
+<<<<<<< HEAD
+from Event.eform import EForm, SubscriptionForm
+=======
+from Event.eform import EForm, SearchForm
+>>>>>>> a808cd9261f140f2fda11c25263fb62fc8e3dcb2
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from django.shortcuts import render, render_to_response
+import Event.models as ev
+from SendTweet import *
+from SendSms import *
+from Event.models import Location, EventType, Event
+
+
+def Home(request):
+    return render_to_response("index.html")
+
+#h4gxrq mp98r2
+
+
+def EntryForm(request):
+    parameters = {}
+    if request.method == 'POST':
+        form = EForm(request.POST)
+        if form.is_valid():
+            form.save()
+            parameters['message'] = "Submitted successfully"
+            #return HttpResponseRedirect('.',)
+            print "successfully posted"
+
+    else:
+        form = EForm()
+        parameters['form'] = form
+    return render(request, 'Event/eform.html', parameters)
+
+
+<<<<<<< HEAD
+# def subscription_form(request):
+#     parameters = {}
+#     if request.user.is_authenticated():
+#         parameters['user'] = request.user
+    
+#     if request.method == 'POST':
+#         form = SubscriptionForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             parameters['message'] = "Submitted successfully"
+#             print "subscription posted"
+
+#         else:
+#             form = SubscriptionForm()
+#             parameters['form'] = form
+#         return render_to_response('Event/subscription_form.html', parameters)
+
+
+=======
+@csrf_exempt
+>>>>>>> a808cd9261f140f2fda11c25263fb62fc8e3dcb2
+def event_list(request):
+    parameters = {}
+    #There is form in search or at beginning surfing of the page
+    form = SearchForm()
+    parameters['form'] = form
+    if request.method != 'GET':
+        parameters["events"] = Event.objects.all()
+        return render_to_response('index.html', parameters)
+    args = {}
+    kargs = {}
+    args['date'] = request.GET.get('date')
+
+    try:
+        args['location'] = Location.objects.get(pk=int(request.GET.get('location')))
+    except:
+        pass
+    try:
+        args['event_type'] = EventType.objects.get(pk=int(request.GET.get('event_type')))
+    except:
+        pass
+
+    for i in args:
+        if args[i]:
+            kargs[i] = args[i]
+
+    events = Event.objects.filter(**kargs)
+    parameters['events'] = events
+    print parameters
+    return render_to_response("index.html", parameters)
+
+
+def event_page(request, event_id):
+    '''Gives the details of the event'''
+    if request.method == 'POST':
+        post_type = request.POST['my_type']
+        event_id = request.POST['id']
+        if post_type == "tweet":
+            send_tweet(event_id)
+            return HttpResponse("Tweeted succesfully")
+
+        if post_type == "sms":
+            send_sms(event_id)
+            return HttpResponse("SMS succesful")
+
+    if len(ev.Event.objects.filter(id=event_id)) == 0:
+        return HttpResponse("No such event id found")
+    event = ev.Event.objects.get(id=event_id)
+    parameters = {}
+    parameters['event'] = event
+    return render(request, 'Event/event_page.html', parameters)

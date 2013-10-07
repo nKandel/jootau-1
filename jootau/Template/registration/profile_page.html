@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block content %}
+	<h2> Profile Information </h2>
+	<p><b>Username :</b> {{ user.user.username }}</p> 
+	{# <p><b>Full Name:</b> {{ user.user.first_name }} {{ user.user.last_name }}</p> #}
+	<p><b>Email    :</b> rajsubit@phunka.com </p>
+	<p><b>Facebook :</b> {{user.facebook }} </p>
+	<p><b>Twitter  :</b> {{ user.twitter }} </p>
+	<p><b>Phone    :</b> {{ user.phone }} </p>
+	<h2> Events you may be interested in</h2>
+	{% for event in events %}
+		<h2><a href="/event/{{event.id}}">{{event.title}}</a></h2>
+		<p> {{event.location.name}}</p>
+		<hr>
+	{% endfor %}
+{% endblock %}

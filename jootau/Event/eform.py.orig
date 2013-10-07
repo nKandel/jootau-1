@@ -1,0 +1,40 @@
+from django import forms
+from django.forms import ModelForm
+from Event.models import EventType, Event, Location, GeneralUser
+import html5.forms.widgets as html5_widgets
+<<<<<<< HEAD
+# form for creating event
+=======
+
+#event_type = {'emergency':1,'not emergency':2}
+>>>>>>> 152327520fa6678c0950b4ad9429a7047f37c158
+
+
+class EForm(ModelForm):
+
+    class Meta:
+        model = Event
+        fields = ['title', 'description', 'date', 'time',
+                  'location_name', 'location', 'event_type']
+        widgets = {'date': html5_widgets.DateInput,
+                   'time': html5_widgets.TimeInput,
+                   }
+
+
+# for for searching the event
+class SearchForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    event_type = forms.ModelChoiceField(queryset=EventType.objects.all())
+    date = forms.DateField(widget=html5_widgets.DateInput
+                           )
+    location = forms.ModelChoiceField(queryset=Location.objects.all())
+<<<<<<< HEAD
+=======
+
+
+class SubscriptionForm(ModelForm):
+
+    class Meta:
+        model = GeneralUser
+        fields = ['phone', 'facebook', 'twitter', 'subscription']
+>>>>>>> 152327520fa6678c0950b4ad9429a7047f37c158

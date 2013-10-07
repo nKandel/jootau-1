@@ -1,0 +1,4 @@
+django-html5
+django-allauth
+pyyaml
+tweetpony

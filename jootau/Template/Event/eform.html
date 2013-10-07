@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block header %}
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jquery-gmaps-latlon-picker.css" %}"/>
+	<script src="{% static "js/jquery-gmaps-latlon-picker.js" %}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="well" style="overflow:auto">
+	{% if message %}
+		<p>Thank you for submitting the form</p>
+		<p><a href="/event/{{event.id}}/">Click here</a> to view your event page</p>
+		<br/>
+		<p>Want to submit another form? <a href="{% url 'event:form' %}">Click Here</a></p>
+	{% else %}
+	<form action='.' method='post' >
+		<div class="col-lg-8">
+		{% csrf_token %}
+			{{ form.as_p }}
+			
+			
+			<fieldset class="gllpLatlonPicker">
+
+			<div class="gllpMap">Google Maps</div>
+				<br/>
+				lat/lon:
+					<input name="lat" type="text" class="gllpLatitude" value="27.7"/>
+					/
+					<input name="lon" type="text" class="gllpLongitude" value="85.3333"/>
+					<input type="hidden" class="gllpZoom" value="13"/>
+				<input type="button" class="gllpUpdateButton btn btn-info" value="update map">
+			</fieldset>
+		<input type="submit" value="Submit" class="btn btn-info"/>
+		
+		</div>
+		
+		</form>
+		
+
+		
+				
+	{% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

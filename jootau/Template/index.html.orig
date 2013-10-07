@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+<<<<<<< HEAD
+{% block body %}
+		<form action='.' method='get'>
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Submit"/>
+		</form>
+	{% if events %}
+	<ol>
+		{% for event in events %}
+			<li>
+				<h2><a href = "{% url 'event:detail' event.id %}">{{ event.title }}</a></h2>
+			</li>
+			{% comment %}
+			-----------------------------------
+			<h3>Location: {{ event.location_name }}, {{ event.location.name }}</h3>
+			<h3>Date: {{ event.date}}, {{event.time}}</h3>
+=======
+{% block header %}
+
+	  <style>
+      #map-canvas  {
+        margin: 0;
+        padding: 0;
+        height: 500px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+	var map;
+	function initialize() {
+	  var mapOptions = {
+	    zoom: 12,
+	    center: new google.maps.LatLng(27.7, 85.3333),
+
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
+	  map = new google.maps.Map(document.getElementById('map-canvas'),
+	      mapOptions);
+
+	  // start 
+
+
+	    // for (var i =0; i<10; i++)
+	    //   {
+	  	
+		{% for event in events %}	      
+	        var latlng = new google.maps.LatLng({{event.location.latitude}}, {{event.location.longitude}});
+	        var marker = new google.maps.Marker({
+	          position: latlng,
+	          map:map,
+	          title:"Hello World!",
+	      
+	        	});
+		{% endfor %}
+	}
+	// end 
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+	    </script>
+	  
+	{% endblock %}
+	
+
+{% block content %}
+	<div id="map-canvas"></div>
+	{% for event in events %}
+		<h2>{{ event.title }}</h2>
+		<h3>Location: {{ event.location_name }}, {{ event.location.name }}</h3>
+		<h3>Date: {{ event.date}}, {{event.time}}</h3>
+>>>>>>> 94478e1006ae14f22f65b7fbedbe6395d665ab6c
+
+			{{event.description }}
+			<br>
+			<h3>Organized by: {{ event.host }}</h3>
+			-----------------------------------
+			{% endcomment %}
+		{% endfor %}
+	</ol>
+	{% else %}
+		<p>No event are available</p>
+	{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2012",
+      // You can put more options here.
+
+    });
+  });
+  </script>
+{% endblock %}
