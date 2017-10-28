@@ -1,4 +1,5 @@
-django-html5
-django-allauth
-pyyaml
-tweetpony
+Django==1.11.6
+django-allauth==0.33.0
+django-html5==1.0.0
+PyYAML==3.12
+TweetPony==1.5.2
