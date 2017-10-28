@@ -1,4 +1,158 @@
-[
+[{
+    "model": "Event.Location",
+    "pk": 1,
+    "fields": {
+      "name": "Koteshwor",
+      "latitude": 27.677067,
+      "longitude": 85.345818
+    }
+  },
+  {
+    "model": "Event.Location",
+    "pk": 2,
+    "fields": {
+      "name": "Babarmahal",
+      "latitude": 27.695346,
+      "longitude": 85.322307
+    }
+  },
+  {
+    "model": "Event.Location",
+    "pk": 3,
+    "fields": {
+      "name": "Gaushala",
+      "latitude": 27.708949,
+      "longitude": 85.3466
+    }
+  },
+  {
+    "model": "Event.Location",
+    "pk": 4,
+    "fields": {
+      "name": "Kirtipur",
+      "latitude": 27.669846,
+      "longitude": 85.28186
+    }
+  },
+  {
+    "model": "Event.Location",
+    "pk": 5,
+    "fields": {
+      "name": "Kalanki",
+      "latitude": 27.693579,
+      "longitude": 85.280875
+    }
+  },
+  {
+    "model": "Event.EventType",
+    "pk": 1,
+    "fields": {
+      "name": "Cleaning Campaign"
+    }
+  },
+  {
+    "model": "Event.EventType",
+    "pk": 2,
+    "fields": {
+      "name": "Donation"
+    }
+  },
+  {
+    "model": "Event.EventType",
+    "pk": 3,
+    "fields": {
+      "name": "Rally"
+    }
+  },
+  {
+    "model": "Event.EventType",
+    "pk": 4,
+    "fields": {
+      "name": "Hackathon"
+    }
+  },
+  {
+    "model": "Event.EventType",
+    "pk": 5,
+    "fields": {
+      "name": "Protest"
+    }
+  },
+  {
+    "model": "Event.EventType",
+    "pk": 6,
+    "fields": {
+      "name": "Marathon"
+    }
+  },
+  {
+    "model": "Event.Subscription",
+    "pk": 1,
+    "fields": {
+      "location": 1,
+      "event_type": 1
+    }
+  },
+  {
+    "model": "Event.Subscription",
+    "pk": 2,
+    "fields": {
+      "location": 2,
+      "event_type": 4
+    }
+  },
+  {
+    "model": "Event.Subscription",
+    "pk": 3,
+    "fields": {
+      "location": 4,
+      "event_type": 6
+    }
+  },
+  {
+    "model": "Event.Subscription",
+    "pk": 4,
+    "fields": {
+      "location": 5,
+      "event_type": 6
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 2,
+    "fields": {
+      "username": "sudip",
+      "email": "b@c.com",
+      "password": "pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0="
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 3,
+    "fields": {
+      "username": "astha",
+      "email": "c@b.com",
+      "password": "pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0="
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 4,
+    "fields": {
+      "username": "raj",
+      "email": "d@b.com",
+      "password": "pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0="
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 5,
+    "fields": {
+      "username": "nkandel",
+      "email": "e@b.com",
+      "password": "pbkdf2_sha256$10000$FwnCidz3Pakc$7MOydcTrfdTS8u3xPtt/olFvWNB32a2hBd3xu2I1Xl0="
+    }
+  },
   {
     "model": "Event.GeneralUser",
     "pk": 1,
