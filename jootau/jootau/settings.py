@@ -1,8 +1,9 @@
 # Django settings for jootau project.
-import os.path
-Temp_Path = os.path.realpath('.')
-Project_Dir = os.path.dirname(__file__)
-Setting_Dir = os.path.dirname(os.path.abspath(__file__))
+from os.path import join, realpath, dirname, abspath
+
+Temp_Path = realpath('.')
+Project_Dir = dirname(__file__)
+Setting_Dir = dirname(abspath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -89,31 +90,19 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'v05qp0#3qdd+8pj+)t%8bba6niun+px-jlppbzl@6aaz^cxz6$'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
 
-
-
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.core.context_processors.request",
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
-    'django.contrib.auth.context_processors.auth',
-)
+
+
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -128,12 +117,24 @@ ROOT_URLCONF = 'jootau.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'jootau.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    Temp_Path +"/Template"
-)
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [join(Temp_Path, "Template")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                "allauth.account.context_processors.account",
+                "allauth.socialaccount.context_processors.socialaccount",
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 INSTALLED_APPS = (
     'django.contrib.auth',

@@ -1,6 +1,8 @@
 # Create your views here.
+from django.template.context_processors import csrf
+
 from Event.eform import EForm, SearchForm, SubscriptionForm
-from django.core.context_processors import csrf
+
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, render_to_response
