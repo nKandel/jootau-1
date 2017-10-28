@@ -1,5 +1,5 @@
 [{
-    "model": "Event.Location",
+    "model": "events.Location",
     "pk": 1,
     "fields": {
       "name": "Koteshwor",
@@ -8,7 +8,7 @@
     }
   },
   {
-    "model": "Event.Location",
+    "model": "events.Location",
     "pk": 2,
     "fields": {
       "name": "Babarmahal",
@@ -17,7 +17,7 @@
     }
   },
   {
-    "model": "Event.Location",
+    "model": "events.Location",
     "pk": 3,
     "fields": {
       "name": "Gaushala",
@@ -26,7 +26,7 @@
     }
   },
   {
-    "model": "Event.Location",
+    "model": "events.Location",
     "pk": 4,
     "fields": {
       "name": "Kirtipur",
@@ -35,7 +35,7 @@
     }
   },
   {
-    "model": "Event.Location",
+    "model": "events.Location",
     "pk": 5,
     "fields": {
       "name": "Kalanki",
@@ -44,49 +44,49 @@
     }
   },
   {
-    "model": "Event.EventType",
+    "model": "events.EventType",
     "pk": 1,
     "fields": {
       "name": "Cleaning Campaign"
     }
   },
   {
-    "model": "Event.EventType",
+    "model": "events.EventType",
     "pk": 2,
     "fields": {
       "name": "Donation"
     }
   },
   {
-    "model": "Event.EventType",
+    "model": "events.EventType",
     "pk": 3,
     "fields": {
       "name": "Rally"
     }
   },
   {
-    "model": "Event.EventType",
+    "model": "events.EventType",
     "pk": 4,
     "fields": {
       "name": "Hackathon"
     }
   },
   {
-    "model": "Event.EventType",
+    "model": "events.EventType",
     "pk": 5,
     "fields": {
       "name": "Protest"
     }
   },
   {
-    "model": "Event.EventType",
+    "model": "events.EventType",
     "pk": 6,
     "fields": {
       "name": "Marathon"
     }
   },
   {
-    "model": "Event.Subscription",
+    "model": "events.Subscription",
     "pk": 1,
     "fields": {
       "location": 1,
@@ -94,7 +94,7 @@
     }
   },
   {
-    "model": "Event.Subscription",
+    "model": "events.Subscription",
     "pk": 2,
     "fields": {
       "location": 2,
@@ -102,7 +102,7 @@
     }
   },
   {
-    "model": "Event.Subscription",
+    "model": "events.Subscription",
     "pk": 3,
     "fields": {
       "location": 4,
@@ -110,7 +110,7 @@
     }
   },
   {
-    "model": "Event.Subscription",
+    "model": "events.Subscription",
     "pk": 4,
     "fields": {
       "location": 5,
@@ -154,7 +154,7 @@
     }
   },
   {
-    "model": "Event.GeneralUser",
+    "model": "events.GeneralUser",
     "pk": 1,
     "fields": {
       "user": 2,
@@ -168,7 +168,7 @@
     }
   },
   {
-    "model": "Event.GeneralUser",
+    "model": "events.GeneralUser",
     "pk": 2,
     "fields": {
       "user": 3,
@@ -183,7 +183,7 @@
     }
   },
   {
-    "model": "Event.GeneralUser",
+    "model": "events.GeneralUser",
     "pk": 3,
     "fields": {
       "user": 4,
@@ -197,7 +197,7 @@
     }
   },
   {
-    "model": "Event.GeneralUser",
+    "model": "events.GeneralUser",
     "pk": 4,
     "fields": {
       "user": 5,
@@ -213,7 +213,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 1,
     "fields": {
       "title": "Blood Donation Program in TU",
@@ -233,7 +233,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 2,
     "fields": {
       "title": "Cycle Rally for women empowerment",
@@ -253,7 +253,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 3,
     "fields": {
       "title": "Marathon in Cristmas",
@@ -273,7 +273,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 4,
     "fields": {
       "title": "Hackathon in Hack Day",
@@ -294,7 +294,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 5,
     "fields": {
       "title": "Protest against women violence",
@@ -315,7 +315,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 6,
     "fields": {
       "title": "Bagmati Cleaning Campaign",
@@ -335,7 +335,7 @@
     }
   },
   {
-    "model": "Event.Event",
+    "model": "events.Event",
     "pk": 7,
     "fields": {
       "title": "Book donation program",

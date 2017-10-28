@@ -1,16 +1,16 @@
 import urllib2
 import urllib
-import Event.models as ev
+from events.models import Event, GeneralUser
 
 
 def send_sms(event_id):
     
     # number = '9842227969'
-    event = ev.Event.objects.get(id=event_id)
-    users = ev.GeneralUser.objects.filter(subscription__location=event.location)
+    event = Event.objects.get(id=event_id)
+    users = GeneralUser.objects.filter(subscription__location=event.location)
     url = "http://localhost:8000/event/"+str(event.id)
 
-    users = ev.GeneralUser.objects.filter(subscription__location=event.location, subscription__event_type=event.event_type)
+    users = GeneralUser.objects.filter(subscription__location=event.location, subscription__event_type=event.event_type)
     msg = event.title[0:60]+ " at " + event.location.name +" on " + str(event.date) + " at " + str(event.time) + " " + url
     client_id = 'apisignup'
     username = 'nkandel'

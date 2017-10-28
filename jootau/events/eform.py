@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from Event.models import EventType, Event, Location, GeneralUser
+from .models import EventType, Event, Location, GeneralUser
 import html5.forms.widgets as html5_widgets
 #form for creating event
 class EForm(ModelForm):

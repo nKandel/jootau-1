@@ -1,4 +1,4 @@
-from Event.models import Subscription, Location, EventType
+from .models import Subscription, Location, EventType
 from django.http import HttpResponse
 
 

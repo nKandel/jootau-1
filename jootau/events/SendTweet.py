@@ -1,5 +1,5 @@
 import tweetpony
-import Event.models as ev
+from .models import Event, GeneralUser
 
 
 def send_tweet(event_id):
@@ -14,11 +14,11 @@ def send_tweet(event_id):
                         access_token_secret=ACCESS_TOKEN_SECRET
                         )
 
-    event = ev.Event.objects.get(id=event_id)
+    event = Event.objects.get(id=event_id)
     
     url = "http://localhost:8000/event/"+str(event.id)
 
-    users = ev.GeneralUser.objects.filter(subscription__location=event.location, subscription__event_type=event.event_type)
+    users = GeneralUser.objects.filter(subscription__location=event.location, subscription__event_type=event.event_type)
     msg = event.title[0:60]+ " at " + event.location.name +" on " + str(event.date) + " at " + str(event.time) + "  " + url
     for usr in users:
         try:
